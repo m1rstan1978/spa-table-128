@@ -122,7 +122,7 @@ export default {
   computed:{
     ...mapGetters(['allList']),
     quantity() {
-      return this.quantity = this.allList.length
+      return this.quantity = this.mainArray.length
     },
     pages() {
       this.mainArray = this.allList
@@ -190,6 +190,9 @@ export default {
             return this.mainArray.slice(this.startIndex, this.endIndex)
           }
         }
+        else {
+          return this.mainArray.slice(this.startIndex, this.endIndex)
+        }
       }
       else if (this.currentColumn === 'Расстояние') {
         if (this.currentСondition === '=') {
@@ -243,13 +246,16 @@ export default {
             return this.mainArray.slice(this.startIndex, this.endIndex)
           }
         }
+        else {
+          return this.mainArray.slice(this.startIndex, this.endIndex)
+        }
       }
       else {
         return this.mainArray.slice(this.startIndex,this.endIndex)
       }
     },
     pagesToStart() {
-      return Math.ceil(this.allList.length / 8)
+      return Math.ceil(this.mainArray.length / 4)
     },
     listToStart() {
       if (this.pagesToStart <= 5) {
